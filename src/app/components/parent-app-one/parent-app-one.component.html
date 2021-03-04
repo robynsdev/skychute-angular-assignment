@@ -1,1 +1,15 @@
-<p>parent-app-one works!</p>
+<!-- <app-child-app-one [inputText]="inputText"></app-child-app-one> -->
+<form class="example-form">
+  <mat-form-field class="example-full-width">
+    <mat-label>Favorite food</mat-label>
+    <input
+      matInput
+      [(ngModel)]="inputText"
+      type="text"
+      name="inputText"
+      placeholder="Type here"
+      value=""
+    />
+  </mat-form-field>
+</form>
+{{ inputText }}
