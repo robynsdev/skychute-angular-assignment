@@ -6,11 +6,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./parent-app-one.component.css'],
 })
 export class ParentAppOneComponent implements OnInit {
-  inputText: string;
+  inputText: string = '';
 
-  constructor() {
-    this.inputText = '';
-  }
+  constructor() {}
 
   ngOnInit(): void {}
+
+  inputChange(value: string) {
+    this.inputText = value;
+  }
 }
