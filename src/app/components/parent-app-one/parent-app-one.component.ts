@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ParentAppOneComponent implements OnInit {
   inputText: string = '';
-
+  value = 'Clear me';
   constructor() {}
 
   ngOnInit(): void {}
