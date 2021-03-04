@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -8,10 +8,13 @@ import { ParentAppOneComponent } from './components/parent-app-one/parent-app-on
 import { ChildAppOneComponent } from './components/child-app-one/child-app-one.component';
 
 import { MatInputModule } from '@angular/material/input';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatIconModule} from '@angular/material/icon';
+
 
 @NgModule({
   declarations: [AppComponent, ParentAppOneComponent, ChildAppOneComponent],
-  imports: [BrowserModule, AppRoutingModule, MatInputModule, FormsModule],
+  imports: [BrowserModule, AppRoutingModule, MatInputModule, FormsModule, ReactiveFormsModule, BrowserAnimationsModule, MatIconModule],
   providers: [],
   bootstrap: [AppComponent],
 })

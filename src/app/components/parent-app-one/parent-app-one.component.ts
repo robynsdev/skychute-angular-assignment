@@ -7,7 +7,6 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ParentAppOneComponent implements OnInit {
   inputText: string = '';
-
   constructor() {}
 
   ngOnInit(): void {}
