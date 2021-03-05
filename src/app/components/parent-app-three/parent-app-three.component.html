@@ -1,0 +1,12 @@
+<div class="container">
+  <h4>PARENT:</h4>
+  <form [formGroup]="form" class="form">
+    <span> Value: {{ form.value | json }} </span>
+
+    <mat-form-field class="form-field">
+      <mat-label>Type here</mat-label>
+      <input matInput type="text" formControlName="inputText" />
+    </mat-form-field>
+  </form>
+  <app-child-app-three></app-child-app-three>
+</div>

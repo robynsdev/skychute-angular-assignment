@@ -1,16 +1,15 @@
-<div class="container">
-  <h4>PARENT:</h4>
+<div class="child-container">
+  <h4>CHILD:</h4>
   <form class="form">
     <mat-form-field class="form-field">
       <mat-label>Type here</mat-label>
       <input
         matInput
-        (keydown)="inputChange($event)"
+        [ngModel]="inputText"
+        (ngModelChange)="change($event)"
         type="text"
         name="inputText"
       />
     </mat-form-field>
   </form>
-  <app-child-app-one [inputText]="inputText"></app-child-app-one>
 </div>
-<!-- [(ngModel)]="inputText" -->
