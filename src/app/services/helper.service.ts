@@ -3,7 +3,7 @@ import { Observable, BehaviorSubject } from 'rxjs';
 
 @Injectable({ providedIn: 'root' })
 export class HelperService {
-  messageEmitter = new BehaviorSubject<string>('wow');
+  messageEmitter = new BehaviorSubject<string>('');
 
   nextMessage(message: string) {
     this.messageEmitter.next(message);

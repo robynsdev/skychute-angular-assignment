@@ -8,7 +8,7 @@ import { HelperService } from 'src/app/services/helper.service';
   styleUrls: ['./child-app-three.component.css'],
 })
 export class ChildAppThreeComponent implements OnInit, OnDestroy {
-  inputText: string = 'world';
+  inputText: string = '';
   private getMessage: Subscription;
 
   constructor(private helperService: HelperService) {}
