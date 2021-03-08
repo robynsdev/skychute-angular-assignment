@@ -1,8 +1,13 @@
-<div>
-  <form class="example-form">
-    <mat-form-field class="example-full-width">
+<div class="container">
+  <h4>PARENT:</h4>
+  <form class="form">
+    <mat-form-field class="form-field">
+      <mat-label>Type here</mat-label>
       <input matInput [(ngModel)]="inputText" type="text" name="inputText" />
     </mat-form-field>
   </form>
   <app-child-app-one [inputText]="inputText"></app-child-app-one>
 </div>
+
+<!-- if not using ngModel, can use below code with function to get keypress events and put into inputText -->
+<!-- (keydown)="inputChange($event)" -->
