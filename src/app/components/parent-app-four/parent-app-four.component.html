@@ -1,1 +1,5 @@
-<p>parent-app-four works!</p>
+<div class="container">
+  <h4>PARENT:</h4>
+  <span>{{ inputText }}</span>
+  <app-child-app-four (outputText)="setMessage($event)"></app-child-app-four>
+</div>
