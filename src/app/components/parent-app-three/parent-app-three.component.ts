@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
+import { Subscription } from 'rxjs';
 import { HelperService } from 'src/app/services/helper.service';
 
 @Component({
@@ -7,8 +8,9 @@ import { HelperService } from 'src/app/services/helper.service';
   templateUrl: './parent-app-three.component.html',
   styleUrls: ['./parent-app-three.component.css'],
 })
-export class ParentAppThreeComponent implements OnInit {
+export class ParentAppThreeComponent implements OnInit, OnDestroy {
   form: FormGroup;
+  private valueChange: Subscription;
 
   constructor(private helperService: HelperService) {}
 
@@ -18,6 +20,12 @@ export class ParentAppThreeComponent implements OnInit {
     });
 
     const a = this.form.get('inputText');
-    a.valueChanges.subscribe((value) => this.helperService.nextMessage(value));
+    this.valueChange = a.valueChanges.subscribe((value) =>
+      this.helperService.nextMessage(value)
+    );
+  }
+
+  ngOnDestroy() {
+    this.valueChange.unsubscribe();
   }
 }

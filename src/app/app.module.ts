@@ -19,6 +19,8 @@ import { ParentAppThreeComponent } from './components/parent-app-three/parent-ap
 import { ChildAppThreeComponent } from './components/child-app-three/child-app-three.component';
 import { HelperService } from './services/helper.service';
 import { Help } from '@material-ui/icons';
+import { ParentAppFourComponent } from './components/parent-app-four/parent-app-four.component';
+import { ChildAppFourComponent } from './components/child-app-four/child-app-four.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +32,8 @@ import { Help } from '@material-ui/icons';
     ChildAppTwoComponent,
     ParentAppThreeComponent,
     ChildAppThreeComponent,
+    ParentAppFourComponent,
+    ChildAppFourComponent,
   ],
   imports: [
     BrowserModule,
