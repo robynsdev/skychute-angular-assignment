@@ -1,14 +1,25 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
+import { HelperService } from 'src/app/services/helper.service';
 
 @Component({
   selector: 'app-child-app-three',
   templateUrl: './child-app-three.component.html',
   styleUrls: ['./child-app-three.component.css'],
 })
-export class ChildAppThreeComponent implements OnInit {
-  inputText;
+export class ChildAppThreeComponent implements OnInit, OnDestroy {
+  inputText: string = 'world';
+  private getMessage: Subscription;
 
-  constructor() {}
+  constructor(private helperService: HelperService) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.getMessage = this.helperService.getMessage().subscribe((message) => {
+      this.inputText = message;
+    });
+  }
+
+  ngOnDestroy() {
+    this.getMessage.unsubscribe();
+  }
 }

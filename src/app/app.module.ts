@@ -17,6 +17,8 @@ import { ParentAppTwoComponent } from './components/parent-app-two/parent-app-tw
 import { ChildAppTwoComponent } from './components/child-app-two/child-app-two.component';
 import { ParentAppThreeComponent } from './components/parent-app-three/parent-app-three.component';
 import { ChildAppThreeComponent } from './components/child-app-three/child-app-three.component';
+import { HelperService } from './services/helper.service';
+import { Help } from '@material-ui/icons';
 
 @NgModule({
   declarations: [

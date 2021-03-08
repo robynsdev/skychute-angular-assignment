@@ -12,7 +12,7 @@ export class ParentAppOneComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  inputChange(value) {
-    this.inputText = value.target.value + value.key;
-  }
+  // inputChange(value) {
+  //   this.inputText = value.target.value + value.key;
+  // }
 }

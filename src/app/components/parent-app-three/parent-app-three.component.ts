@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { Component, OnInit, DoCheck } from '@angular/core';
+import { FormGroup, FormControl } from '@angular/forms';
+import { HelperService } from 'src/app/services/helper.service';
 
 @Component({
   selector: 'app-parent-app-three',
@@ -9,11 +10,14 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 export class ParentAppThreeComponent implements OnInit {
   form: FormGroup;
 
-  constructor(private fb: FormBuilder) {}
+  constructor(private helperService: HelperService) {}
 
   ngOnInit() {
-    this.form = this.fb.group({
-      inputText: '',
+    this.form = new FormGroup({
+      inputText: new FormControl(null),
     });
+
+    const a = this.form.get('inputText');
+    a.valueChanges.subscribe((value) => this.helperService.nextMessage(value));
   }
 }
