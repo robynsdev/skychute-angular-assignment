@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Observable, BehaviorSubject, Subscription } from 'rxjs';
+import { ChildAppFourComponent } from '../child-app-four/child-app-four.component';
 
 @Component({
   selector: 'app-parent-app-four',
@@ -7,8 +8,8 @@ import { Observable, BehaviorSubject, Subscription } from 'rxjs';
   styleUrls: ['./parent-app-four.component.css'],
 })
 export class ParentAppFourComponent implements OnInit {
+  @ViewChild('childApp', { static: false }) childApp: ChildAppFourComponent;
   inputText: string;
-  private valueChange: Subscription;
 
   messageEmitter = new BehaviorSubject<string>('');
 
@@ -16,19 +17,16 @@ export class ParentAppFourComponent implements OnInit {
     this.messageEmitter.next(message);
   }
 
-  getMessage(): Observable<string> {
-    return this.messageEmitter.asObservable();
+  getMessage(): string {
+    return this.childApp.text.getValue();
   }
 
   constructor() {}
 
   ngOnInit(): void {
-    this.valueChange = this.getMessage().subscribe((message) => {
-      this.inputText = message;
-    });
   }
 
   ngOnDestroy() {
-    this.valueChange.unsubscribe();
+    this.childApp.text.unsubscribe();
   }
 }

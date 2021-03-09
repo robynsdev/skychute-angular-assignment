@@ -10,5 +10,9 @@ export class ParentAppTwoComponent implements OnInit {
 
   constructor() {}
 
+  changeDisplayedText(event: string){
+    this.inputText = event;
+  }
+
   ngOnInit(): void {}
 }

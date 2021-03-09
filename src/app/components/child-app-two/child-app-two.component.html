@@ -5,8 +5,7 @@
       <mat-label>Type here</mat-label>
       <input
         matInput
-        [ngModel]="inputText"
-        (ngModelChange)="change($event)"
+        (keyup)="inputChanged($event)"
         type="text"
         name="inputText"
       />
