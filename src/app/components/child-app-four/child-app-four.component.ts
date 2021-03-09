@@ -1,6 +1,7 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
-import { Subscription } from 'rxjs';
+import { Observable } from 'rxjs';
+import { BehaviorSubject, Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-child-app-four',
@@ -8,7 +9,7 @@ import { Subscription } from 'rxjs';
   styleUrls: ['./child-app-four.component.css'],
 })
 export class ChildAppFourComponent implements OnInit {
-  @Output() public outputText = new EventEmitter<string>();
+  text = new BehaviorSubject<string>(null);
 
   form: FormGroup;
   private valueChange: Subscription;
@@ -22,7 +23,9 @@ export class ChildAppFourComponent implements OnInit {
 
     const a = this.form.get('inputText');
     this.valueChange = a.valueChanges.subscribe((value) =>
-      this.outputText.emit(value)
+      {
+        this.text.next(value);
+      }
     );
   }
 

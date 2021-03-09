@@ -1,5 +1,5 @@
 <div class="container">
   <h4>PARENT:</h4>
-  <span>{{ inputText }}</span>
-  <app-child-app-four (outputText)="setMessage($event)"></app-child-app-four>
+  <span>{{ getMessage() }}</span>
+  <app-child-app-four #childApp></app-child-app-four>
 </div>

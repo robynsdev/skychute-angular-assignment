@@ -6,15 +6,15 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
   styleUrls: ['./child-app-two.component.css'],
 })
 export class ChildAppTwoComponent implements OnInit {
-  @Input() inputText: string;
+  inputText: string;
   @Output() public inputTextChange = new EventEmitter<string>();
 
   constructor() {}
 
   ngOnInit() {}
 
-  change(value) {
-    this.inputText = value;
-    this.inputTextChange.emit(value);
+  inputChanged(event: KeyboardEvent) {
+    this.inputText = (event.target as HTMLInputElement).value;
+    this.inputTextChange.emit(this.inputText);
   }
 }
