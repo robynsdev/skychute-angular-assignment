@@ -5,7 +5,7 @@ import { Observable, BehaviorSubject } from 'rxjs';
 export class HelperService {
   messageEmitter = new BehaviorSubject<string>('');
 
-  nextMessage(message: string) {
+  setMessage(message: string) {
     this.messageEmitter.next(message);
   }
 

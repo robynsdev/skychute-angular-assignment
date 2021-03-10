@@ -21,7 +21,7 @@ export class ParentAppThreeComponent implements OnInit, OnDestroy {
 
     const a = this.form.get('inputText');
     this.valueChange = a.valueChanges.subscribe((value) =>
-      this.helperService.nextMessage(value)
+      this.helperService.setMessage(value)
     );
   }
 

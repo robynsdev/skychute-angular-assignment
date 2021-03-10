@@ -1,5 +1,7 @@
 <div class="container">
   <h4>PARENT:</h4>
-  <span>{{ inputText }}</span>
-  <app-child-app-two [(inputText)]="inputText"></app-child-app-two>
+  <span>{{ outputText }}</span>
+  <app-child-app-two
+    (inputTextChange)="changeDisplayText($event)"
+  ></app-child-app-two>
 </div>

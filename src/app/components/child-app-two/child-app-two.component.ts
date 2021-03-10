@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-child-app-two',
@@ -6,15 +6,18 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
   styleUrls: ['./child-app-two.component.css'],
 })
 export class ChildAppTwoComponent implements OnInit {
-  @Input() inputText: string;
+  inputText: string;
   @Output() public inputTextChange = new EventEmitter<string>();
 
   constructor() {}
 
   ngOnInit() {}
 
-  change(value) {
-    this.inputText = value;
-    this.inputTextChange.emit(value);
+  onKeyup(event: string) {
+    // (event.target as HTMLInputElement) is used because target might not have .value
+    // typecast as HTMLInputElement, the correct HTML element which has value property
+    // this.inputText = (event.target as HTMLInputElement).value;
+    this.inputText = event;
+    this.inputTextChange.emit(this.inputText);
   }
 }

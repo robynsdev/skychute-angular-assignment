@@ -5,11 +5,12 @@
       <mat-label>Type here</mat-label>
       <input
         matInput
-        [ngModel]="inputText"
-        (ngModelChange)="change($event)"
+        #childText
+        (keyup)="onKeyup(childText.value)"
         type="text"
         name="inputText"
       />
     </mat-form-field>
   </form>
 </div>
+<!-- (keyup)="onKeyup($event)" -->
